@@ -8,19 +8,28 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main>
+    <header class="site-header">
+      <div class="site-shell header-content">
+        <a class="site-title" href="/">Yiyang Ruan</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#projects">Projects</a>
+          <a href="https://github.com/yiyangruan2004">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-shell">
       <section class="hero" aria-labelledby="page-title">
         <p class="eyebrow">Engineering portfolio</p>
-        <h1 id="page-title">Yiyang Ruan</h1>
-        <p class="intro">Research-oriented engineering projects for graduate research labs.</p>
+        <h1 id="page-title">Research-oriented engineering projects</h1>
+        <p class="intro">Selected work by Yiyang Ruan for graduate research labs.</p>
       </section>
 
-      <section class="projects" aria-labelledby="projects-title">
-        <p class="eyebrow">Selected work</p>
+      <section class="projects" id="projects" aria-labelledby="projects-title">
         <h2 id="projects-title">Projects</h2>
 
-        <div class="project-grid">
-          <article class="project-card">
+        <div class="project-list">
+          <article class="project-entry">
             <div class="project-figure" role="img" aria-label="Calibration Stage Project figure placeholder">
               Project figure to be added
             </div>
@@ -31,7 +40,7 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-entry">
             <div class="project-figure" role="img" aria-label="USDOT project figure placeholder">
               Project figure to be added
             </div>
@@ -45,8 +54,8 @@
       </section>
     </main>
 
-    <footer>
-      <a href="https://github.com/yiyangruan2004">GitHub</a>
+    <footer class="site-footer">
+      <div class="site-shell">© Yiyang Ruan · <a href="https://github.com/yiyangruan2004">GitHub</a></div>
     </footer>
   </body>
 </html>

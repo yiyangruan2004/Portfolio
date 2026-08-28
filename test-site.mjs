@@ -32,3 +32,18 @@ test('README has exactly the two required sections', () => {
   const headings = read('README.md').match(/^## .+$/gm) ?? [];
   assert.deepEqual(headings, ['## Significance and method', '## Repository structure']);
 });
+
+test('page uses a restrained academic navigation and project-list layout', () => {
+  const page = read('index.html');
+  const styles = read('styles.css');
+
+  assert.match(page, /<header class="site-header">/);
+  assert.match(page, /<nav class="site-nav" aria-label="Primary">/);
+  assert.match(page, /href="#projects"/);
+  assert.match(page, /class="project-list"/);
+  assert.match(styles, /\.site-header/);
+  assert.match(styles, /\.project-list/);
+  assert.match(styles, /border-top: 1px solid var\(--line\)/);
+  assert.doesNotMatch(styles, /box-shadow/);
+  assert.doesNotMatch(styles, /linear-gradient/);
+});
