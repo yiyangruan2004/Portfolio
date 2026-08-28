@@ -21,16 +21,31 @@
       </div>
     </header>
 
-    <main class="site-shell">
-      <section class="about-section" id="about" aria-labelledby="page-title">
-        <p class="eyebrow">Engineering portfolio</p>
-        <h1 id="page-title">Research-oriented engineering projects</h1>
-        <p class="intro">About placeholder: I am an engineering researcher building careful, practical systems for graduate research labs.</p>
-      </section>
+    <div class="site-shell page-layout">
+      <aside class="profile-panel" aria-labelledby="profile-title">
+        <div class="selfie-placeholder" role="img" aria-label="Selfie placeholder">Selfie placeholder</div>
+        <h2 id="profile-title">Yiyang Ruan</h2>
+        <p class="profile-role">Engineering researcher</p>
+
+        <section class="contact-block" aria-labelledby="contact-title">
+          <h3 id="contact-title">Contact</h3>
+          <ul class="contact-list">
+            <li>Location placeholder</li>
+            <li><a href="mailto:email@example.com">email@example.com</a></li>
+            <li><a href="https://github.com/yiyangruan2004">GitHub</a></li>
+            <li><a href="https://docs.google.com/document/d/1RuwfnQPo8AEf4tF7Zv5P_DT6EmgrvFSCqTmECBRmU0E/edit?tab=t.0">CV</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <main class="site-content">
+        <section class="about-section" id="about" aria-labelledby="page-title">
+          <h1 id="page-title">Engineer portfolio</h1>
+          <p class="intro">About placeholder: I am an engineering researcher building careful, practical systems for graduate research labs.</p>
+        </section>
 
       <section class="project-section" id="calibration-stage" aria-labelledby="calibration-stage-title">
-        <p class="eyebrow">Project 01</p>
-        <h2 id="calibration-stage-title">Calibration Stage Project</h2>
+        <h2 id="calibration-stage-title">Project 1</h2>
         <article class="project-entry">
           <div class="project-figure" role="img" aria-label="Calibration Stage Project figure placeholder">
             Project figure to be added
@@ -43,8 +58,7 @@
       </section>
 
       <section class="project-section" id="usdot" aria-labelledby="usdot-title">
-        <p class="eyebrow">Project 02</p>
-        <h2 id="usdot-title">USDOT</h2>
+        <h2 id="usdot-title">Project 2</h2>
         <article class="project-entry">
           <div class="project-figure" role="img" aria-label="USDOT project figure placeholder">
             Project figure to be added
@@ -55,10 +69,11 @@
           </div>
         </article>
       </section>
-    </main>
+      </main>
+    </div>
 
     <footer class="site-footer">
-      <div class="site-shell">© Yiyang Ruan · <a href="https://github.com/yiyangruan2004">GitHub</a></div>
+      <div class="site-shell">© Yiyang Ruan</div>
     </footer>
   </body>
 </html>

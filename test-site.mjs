@@ -53,3 +53,18 @@ test('page uses a restrained academic navigation and section-based project layou
   assert.doesNotMatch(styles, /box-shadow/);
   assert.doesNotMatch(styles, /linear-gradient/);
 });
+
+test('page includes an accessible profile side panel with contact placeholders', () => {
+  const page = read('index.html');
+  const styles = read('styles.css');
+
+  assert.match(page, /<aside class="profile-panel" aria-labelledby="profile-title">/);
+  assert.match(page, /class="selfie-placeholder"[^>]*>Selfie placeholder<\/div>/);
+  assert.match(page, /<section class="contact-block" aria-labelledby="contact-title">/);
+  assert.match(page, /id="contact-title">Contact<\/h3>/);
+  assert.match(page, /Location placeholder/);
+  assert.match(page, /mailto:email@example\.com/);
+  assert.match(styles, /\.page-layout/);
+  assert.match(styles, /\.profile-panel/);
+  assert.match(styles, /@media \(max-width: 900px\)/);
+});
