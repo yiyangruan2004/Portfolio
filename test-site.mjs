@@ -25,3 +25,10 @@ test('stylesheet has a mobile layout and keyboard focus treatment', () => {
   assert.match(styles, /@media \(max-width: 720px\)/);
   assert.match(styles, /:focus-visible/);
 });
+
+test('README has exactly the two required sections', () => {
+  assert.equal(existsSync(new URL('README.md', import.meta.url)), true);
+
+  const headings = read('README.md').match(/^## .+$/gm) ?? [];
+  assert.deepEqual(headings, ['## Significance and method', '## Repository structure']);
+});
