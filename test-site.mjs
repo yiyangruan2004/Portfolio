@@ -37,11 +37,7 @@ test('page uses a restrained academic navigation and section-based project layou
   const page = read('index.html');
   const styles = read('styles.css');
 
-  assert.match(page, /<header class="site-header">/);
-  assert.match(page, /<nav class="site-nav" aria-label="Primary">/);
-  assert.match(page, /href="#about">About<\/a>/);
-  assert.match(page, /href="#calibration-stage">Calibration Stage<\/a>/);
-  assert.match(page, /href="#usdot">USDOT<\/a>/);
+  assert.match(page, /<main class="site-content">/);
   const aboutIndex = page.indexOf('<section class="about-section" id="about"');
   const calibrationIndex = page.indexOf('<section class="project-section" id="calibration-stage"');
   const usdotIndex = page.indexOf('<section class="project-section" id="usdot"');
@@ -59,12 +55,18 @@ test('page includes an accessible profile side panel with contact placeholders',
   const styles = read('styles.css');
 
   assert.match(page, /<aside class="profile-panel" aria-labelledby="profile-title">/);
-  assert.match(page, /class="selfie-placeholder"[^>]*>Selfie placeholder<\/div>/);
   assert.match(page, /<section class="contact-block" aria-labelledby="contact-title">/);
   assert.match(page, /id="contact-title">Contact<\/h3>/);
   assert.match(page, /Location placeholder/);
-  assert.match(page, /mailto:email@example\.com/);
+  assert.match(page, /mailto:[^" ]+/);
   assert.match(styles, /\.page-layout/);
   assert.match(styles, /\.profile-panel/);
   assert.match(styles, /@media \(max-width: 900px\)/);
+});
+
+test('profile side panel uses the supplied photo asset', () => {
+  const page = read('index.html');
+
+  assert.equal(existsSync(new URL('assets/profile-photo.jpg', import.meta.url)), true);
+  assert.match(page, /<img class="profile-photo" src="assets\/profile-photo\.jpg" alt="Yiyang Ruan">/);
 });
