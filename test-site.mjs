@@ -33,16 +33,22 @@ test('README has exactly the two required sections', () => {
   assert.deepEqual(headings, ['## Significance and method', '## Repository structure']);
 });
 
-test('page uses a restrained academic navigation and project-list layout', () => {
+test('page uses a restrained academic navigation and section-based project layout', () => {
   const page = read('index.html');
   const styles = read('styles.css');
 
   assert.match(page, /<header class="site-header">/);
   assert.match(page, /<nav class="site-nav" aria-label="Primary">/);
-  assert.match(page, /href="#projects"/);
-  assert.match(page, /class="project-list"/);
+  assert.match(page, /href="#about">About<\/a>/);
+  assert.match(page, /href="#calibration-stage">Calibration Stage<\/a>/);
+  assert.match(page, /href="#usdot">USDOT<\/a>/);
+  const aboutIndex = page.indexOf('<section class="about-section" id="about"');
+  const calibrationIndex = page.indexOf('<section class="project-section" id="calibration-stage"');
+  const usdotIndex = page.indexOf('<section class="project-section" id="usdot"');
+  assert.ok(aboutIndex >= 0 && aboutIndex < calibrationIndex && calibrationIndex < usdotIndex);
+  assert.match(page, /About placeholder/);
   assert.match(styles, /\.site-header/);
-  assert.match(styles, /\.project-list/);
+  assert.match(styles, /\.project-section/);
   assert.match(styles, /border-top: 1px solid var\(--line\)/);
   assert.doesNotMatch(styles, /box-shadow/);
   assert.doesNotMatch(styles, /linear-gradient/);

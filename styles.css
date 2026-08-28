@@ -45,10 +45,12 @@ body {
 
 .site-nav {
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 1.25rem;
 }
 
-.hero {
+.about-section {
   max-width: 46rem;
   padding: 5rem 0 3.5rem;
 }
@@ -86,20 +88,20 @@ h2 {
   font-size: 1.1rem;
 }
 
-.projects {
-  padding-bottom: 4rem;
+.project-section {
+  padding: 3.5rem 0 4rem;
+  border-top: 1px solid var(--line);
 }
 
-.project-list {
-  border-top: 1px solid var(--line);
+.project-section h2 {
+  margin-bottom: 0;
 }
 
 .project-entry {
   display: grid;
   grid-template-columns: minmax(13rem, 17rem) 1fr;
   gap: 2rem;
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--line);
+  padding: 2rem 0 0;
 }
 
 .project-figure {
@@ -154,8 +156,12 @@ a:focus-visible {
     padding: 1rem 0;
   }
 
-  .hero {
+  .about-section {
     padding: 3.5rem 0 2.5rem;
+  }
+
+  .project-section {
+    padding: 2.75rem 0 3.25rem;
   }
 
   .project-entry {
